@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addons>
+<addon id="plugin.video.xtreamcodes" name="Xtreamcodes" version="4.8.7" provider-name="Ottlinux">
+  <requires>
+        <import addon="script.module.six" />
+        <import addon="script.module.requests" />
+        <import addon="script.module.kodi-six" />
+  </requires>
+  <extension point="xbmc.python.pluginsource"
+            library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="es">Xtreamcodes</summary>
+    <language>es</language>
+    <description lang="en">Xtreamcodecs ui</description>
+     <platform>all</platform>
+  <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+     </assets>
+  </extension>
+</addon>
+
+<addon id="repository.ottlinux" name="Ottlinux" version="3.1.8" provider-name="Ottlinux">
+    <requires>
+        <import addon="xbmc.addon" version="12.0.0"/>
+    </requires>
+    <extension point="xbmc.addon.repository" name="Ottlinux Repo">
+        <dir>
+            <info>https://raw.githubusercontent.com/tvboxlinux/Ottlinux/master/_repo/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/tvboxlinux/Ottlinux/master/_repo/addons.xml.md5</checksum>
+            <datadir zip="true">https://github.com/tvboxlinux/Ottlinux/raw/master/_repo/</datadir>
+        </dir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="es">Repositorio Ottlinux</summary>
+        <description lang="es">Repositorio para instalar en Ottlinux, uno de los principales add-ons del sistema ottlinux.</description>
+        <disclaimer lang="es">[COLOR red]Los propietarios y distribuidores de este add-on no proveen ni distribuyen ningún contenido mostrado por el add-on ni tienen afiliación alguna con los proveedores del contenido.[/COLOR]</disclaimer>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>
+</addons>
