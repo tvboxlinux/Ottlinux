@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <setting id="firstrun" type="bool" label="" default="false" visible="false" />
+    <category label="General">
+        <setting label="General" type="lsep" />
+        <setting id="dlpath" type="folder" label="Lugar de descarga" source="auto" option="writeable" />
+        <setting id="keep_files" type="bool" label="Conservar los archivos después de que se detiene la reproducción" default="false" />
+
+        <setting label="Content" type="lsep"/>
+        <setting id="immunicity" type="bool" label="Desbloqueo automático a través de inmunidad" default="true" />
+
+        <setting label="BitTorrent" type="lsep"/>
+        <setting id="torrent_engine" label="Motor del reproductor torrent" type="enum" values="torrent2http|AceEngine" default="0"/>
+        <setting id="max_download_rate" label="Velocidad máxima de descarga (kB/s)" type="number" default="" />
+        <setting id="encryption" label="Cifrado" type="enum" values="Forced|Enabled|Disabled" default="3" />
+        <setting id="ace_keep_encripted" label="Mantener archivos encriptados" type="bool" default="false" enable="eq(-9,true)"/>
+        <setting id="ace_host" label="Host remoto AceEngine" type="ipaddress" default="127.0.0.1" enable="eq(-5,1)"/>
+        <setting id="ace_port" label="Puerto remoto AceEngine" type="number" default="62062" enable="eq(-6,1)"/>
+        <setting id="tuned_storage" label="Habilitar configuraciones de almacenamiento sintonizadas" type="number" default="false"/>
+    </category>
+</settings>
