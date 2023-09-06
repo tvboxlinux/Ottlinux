@@ -21,8 +21,8 @@ fanart       = transPath(os.path.join('special://home/addons/' + addon_id , 'fan
 
 username     = control.setting('Username')
 password     = control.setting('Password')
-host         = control.setting('host')
-port         = control.setting('port')
+host         = control.setting('Host')
+port         = control.setting('Port')
 
 live_url     = '%s:%s/enigma2.php?username=%s&password=%s&type=get_live_categories'%(host,port,username,password)
 vod_url      = '%s:%s/enigma2.php?username=%s&password=%s&type=get_vod_categories'%(host,port,username,password)
@@ -58,9 +58,9 @@ def start():
             start()
         else:
             line1 = "Conectado al servidor"
-            line2 = "Bienvenidos" 
-            line3 = ('[B][COLOR lime]%s[/COLOR][/B]'%user)
-            xbmcgui.Dialog().ok('[B][COLOR lime]Tvip[/COLOR][/B]', line1 + '\n' + line2 + '\n' + line3)
+            line2 = "Bienvenidos [B]Ottplayer[/B]!" 
+            line3 = ('[B][COLOR white]%s[/COLOR][/B]'%user)
+            xbmcgui.Dialog().ok('Ottplayer', line1 + '\n' + line2 + '\n' + line3)
             addonsettings('ADS2','')
             xbmc.executebuiltin('Container.Refresh')
             home()
@@ -70,13 +70,13 @@ def start():
         auth = '%s:%s/enigma2.php?username=%s&password=%s&type=get_series_categories'%(host,port,username,password)
         auth = tools.OPEN_URL(auth)
         if not auth=="":
-            tools.addDir('[B][COLOR lime]Detalles de la cuenta[/COLOR][/B]','url',6,icon,fanart,'')
-            tools.addDir('[B][COLOR blue]Canales[/COLOR][/B]','live',1,icon,fanart,'')
-            tools.addDir('[B][COLOR blue]Peliculas[/COLOR][/B]','url',11,icon,fanart,'')
-            tools.addDir('[B][COLOR blue]Series[/COLOR][/B]','url',12,icon,fanart,'')
-            #tools.addDir('[B][COLOR lime]Epg de canales[/COLOR][/B]','url',122,icon,fanart,'')
-            tools.addDir('[B][COLOR lime]Extras[/COLOR][/B]','url',16,icon,fanart,'')
-            tools.addDir('[B][COLOR lime]Configuraciones[/COLOR][/B]','AS',10,icon,fanart,'')
+            tools.addDir('[B][COLOR white]Detalles de la cuenta[/COLOR][/B]','url',6,icon,fanart,'')
+            tools.addDir('[B][COLOR white]Canales[/COLOR][/B]','live',1,icon,fanart,'')
+            tools.addDir('[B][COLOR white]Peliculas[/COLOR][/B]','url',11,icon,fanart,'')
+            tools.addDir('[B][COLOR white]Series[/COLOR][/B]','url',12,icon,fanart,'')
+            tools.addDir('[B][COLOR white]Epg de canales[/COLOR][/B]','url',122,icon,fanart,'')
+            tools.addDir('[B][COLOR white]Extras[/COLOR][/B]','url',16,icon,fanart,'')
+            tools.addDir('[B][COLOR white]Configuraciones[/COLOR][/B]','AS',10,icon,fanart,'')
             tools.addDir('[B][COLOR red]Eliminar la cuenta[/COLOR][/B]','LO',10,icon,fanart,'')
             
             
@@ -244,7 +244,7 @@ def _pbhook(numblocks, blocksize, filesize, dp, start_time):
             dp.update(percent) 
         if dp.iscanceled():
             dialog = xbmcgui.Dialog()
-            dialog.ok("Xtreamcodes", 'La descarga fue cancelada.')
+            dialog.ok("SS TV", 'The download was cancelled.')
                 
             sys.exit()
             dp.close()
@@ -253,7 +253,7 @@ def _pbhook(numblocks, blocksize, filesize, dp, start_time):
 def search_scat(url):
     text = searchdialog()
     if not text:
-        xbmc.executebuiltin("Notificacion([COLOR red][B]Nada encontrado o mal escrito el titulo[/B][/COLOR],borrando la busqueda,4000,"+icon+")")
+        xbmc.executebuiltin("XBMC.Notification([COLOR white][B]Search is Empty[/B][/COLOR],Aborting search,4000,"+icon+")")
         return
     return scat(url,text)
 
@@ -440,13 +440,13 @@ def stream_video(url):
     
     
 def subm():
-    tools.addDir('[COLOR lime]Cargar la lista[/COLOR]','vod',333,icon,fanart,'')
-    tools.addDir('[COLOR lime]Cargar la lista por generos[/COLOR]','vod',3,icon,fanart,'')
-    tools.addDir('[COLOR lime]Buscar la pelicula por su nombre[/COLOR]','url',5,icon,fanart,'')
+    tools.addDir('[COLOR white]All Movies[/COLOR]','vod',333,icon,fanart,'')
+    tools.addDir('[COLOR white]Movie Categories[/COLOR]','vod',3,icon,fanart,'')
+    tools.addDir('[COLOR white]Search Movies[/COLOR]','url',5,icon,fanart,'')
 
 def subt():
-    tools.addDir('[COLOR lime]Cargar la lista por generos[/COLOR]',series_url,24,icon,fanart,'')
-    tools.addDir('[COLOR lime]Buscar la serie por su nombre[/COLOR]',all_series_url,2424,icon,fanart,'')
+    tools.addDir('[COLOR white]TV Show Categories[/COLOR]',series_url,24,icon,fanart,'')
+    tools.addDir('[COLOR white]Search TV Shows[/COLOR]',all_series_url,2424,icon,fanart,'')
 
 def subg():
     if xbmc.getCondVisibility('System.HasAddon(script.ivueguide)'):
@@ -461,7 +461,7 @@ def guideconf():
 
 
 def searchdialog():
-    search = control.inputDialog(heading='Buscar xtreamcodecs:')
+    search = control.inputDialog(heading='Search SS TV:')
     if search=="":
         return
     else:
@@ -472,10 +472,10 @@ def search():
     if mode==([3, 4, 20, 21]):
         return False
     #text = searchdialog()
-    text = xbmcgui.Dialog().input("Escribe el nombre de la pelicula que buscas ?")
+    text = xbmcgui.Dialog().input("Search for a Movie ?")
     xbmc.log(repr(text),xbmc.LOGERROR)
     if not text:
-        xbmc.executebuiltin("Notificacion([COLOR red][B]Nada encontrado o mal escrito el titulo[/B][/COLOR],borrando la busqueda,4000,"+icon+")")
+        xbmc.executebuiltin("XBMC.Notification([COLOR white][B]Search is Empty[/B][/COLOR],Aborting search,4000,"+icon+")")
         return
     xbmc.log(str(text))
     open = tools.OPEN_URL(panel_api)
@@ -511,42 +511,42 @@ def addonsettings(url,description):
     elif url =="AS":
         xbmc.executebuiltin('Addon.OpenSettings(%s)'%addon_id)
     elif url =="ADS":
-        dialog = xbmcgui.Dialog().select('Editar configuracion avanzada', ['Habilitar Ottlinux','Habilitar Fire TV','Habilitar 1GB Ram o menos','Habilitar 2GB Ram o mas','Habilitar Nvidia Shield','Borrar las configuraciones'])
+        dialog = xbmcgui.Dialog().select('Edit Advanced Settings', ['Enable Fire TV Stick AS','Enable Fire TV AS','Enable 1GB Ram or Lower AS','Enable 2GB Ram or Higher AS','Enable Nvidia Shield AS','Disable AS'])
         if dialog==0:
-            advancedsettings('ottlinux')
-            xbmcgui.Dialog().ok('Ottlinux', 'Ajustes avanzados creados')
+            advancedsettings('stick')
+            xbmcgui.Dialog().ok('SS TV', 'Set Advanced Settings')
         elif dialog==1:
             advancedsettings('firetv')
-            xbmcgui.Dialog().ok('Ottlinux', 'Ajustes avanzados creados')
+            xbmcgui.Dialog().ok('SS TV', 'Set Advanced Settings')
         elif dialog==2:
             advancedsettings('lessthan')
-            xbmcgui.Dialog().ok('Ottlinux', 'Ajustes avanzados creados')
+            xbmcgui.Dialog().ok('SS TV', 'Set Advanced Settings')
         elif dialog==3:
             advancedsettings('morethan')
-            xbmcgui.Dialog().ok('Ottlinux', 'Ajustes avanzados creados')
+            xbmcgui.Dialog().ok('SS TV', 'Set Advanced Settings')
         elif dialog==4:
             advancedsettings('shield')
-            xbmcgui.Dialog().ok('Ottlinux', 'Ajustes avanzados creados')
+            xbmcgui.Dialog().ok('SS TV', 'Set Advanced Settings')
         elif dialog==5:
             advancedsettings('remove')
-            xbmcgui.Dialog().ok('Ottlinux', 'Ajustes avanzados borrados')
+            xbmcgui.Dialog().ok('SS TV', 'Advanced Settings Removed')
     elif url =="ADS2":
-        dialog = xbmcgui.Dialog().select('Seleccione su dispositivo o el mas cercano a la memoria ram de su equipo', ['Ottlinux ','Fire TV','1GB Ram o menos','2GB Ram o mas','Nvidia Shield'])
+        dialog = xbmcgui.Dialog().select('Select Your Device Or Closest To', ['Fire TV Stick ','Fire TV','1GB Ram or Lower','2GB Ram or Higher','Nvidia Shield'])
         if dialog==0:
-            advancedsettings('ottlinux')
-            xbmcgui.Dialog().ok('Ottlinux', 'Ajustes avanzados creados')
+            advancedsettings('stick')
+            xbmcgui.Dialog().ok('SS TV', 'Set Advanced Settings')
         elif dialog==1:
             advancedsettings('firetv')
-            xbmcgui.Dialog().ok('Ottlinux', 'Ajustes avanzados creados')
+            xbmcgui.Dialog().ok('SS TV', 'Set Advanced Settings')
         elif dialog==2:
             advancedsettings('lessthan')
-            xbmcgui.Dialog().ok('Ottlinux', 'Ajustes avanzados creados')
+            xbmcgui.Dialog().ok('SS TV', 'Set Advanced Settings')
         elif dialog==3:
             advancedsettings('morethan')
-            xbmcgui.Dialog().ok('Ottlinux', 'Ajustes avanzados creados')
+            xbmcgui.Dialog().ok('SS TV', 'Set Advanced Settings')
         elif dialog==4:
             advancedsettings('shield')
-            xbmcgui.Dialog().ok('Ottlinux', 'Ajustes avanzados creados')
+            xbmcgui.Dialog().ok('SS TV', 'Set Advanced Settings')
     elif url =="ST":
         try:
             xbmcaddon.Addon(id = 'script.speedtester')
@@ -602,8 +602,8 @@ def all_movies():
     xbmcplugin.addSortMethod(int(sys.argv[1]), xbmcplugin.SORT_METHOD_VIDEO_TITLE)
 
 def advancedsettings(device):
-    if device == 'ottlinux':
-        file = open(os.path.join(advanced_settings, 'ottlinux.xml'))
+    if device == 'stick':
+        file = open(os.path.join(advanced_settings, 'stick.xml'))
     elif device == 'firetv':
         file = open(os.path.join(advanced_settings, 'firetv.xml'))
     elif device == 'lessthan':
@@ -650,7 +650,7 @@ def lessthan():
         
 def userpopup():
     kb =xbmc.Keyboard ('', 'heading', True)
-    kb.setHeading('Ingrese el nombre de usuario')
+    kb.setHeading('Enter Username')
     kb.setHiddenInput(False)
     kb.doModal()
     if (kb.isConfirmed()):
@@ -662,7 +662,7 @@ def userpopup():
         
 def passpopup():
     kb =xbmc.Keyboard ('', 'heading', True)
-    kb.setHeading('Ingrese la clave de acceso')
+    kb.setHeading('Enter Password')
     kb.setHiddenInput(False)
     kb.doModal()
     if (kb.isConfirmed()):
@@ -688,13 +688,13 @@ def accountinfo():
             month     = tools.MonthNumToName(month)
             year      = re.sub(' -.*?$','',year)
             expiry    = month+' '+day+' - '+year
-            tools.addDir('[B][COLOR gold]Estado de la cuenta :[/COLOR][/B] %s'%status,'','',icon,fanart,'')
-            tools.addDir('[B][COLOR gold]Fecha de termino del servicio:[/COLOR][/B] '+expiry,'','',icon,fanart,'')
-            tools.addDir('[B][COLOR gold]Nombre de usuario :[/COLOR][/B] '+username,'','',icon,fanart,'')
-            tools.addDir('[B][COLOR gold]Clave de acceso :[/COLOR][/B] '+password,'','',icon,fanart,'')
-            tools.addDir('[B][COLOR gold]El maximo de equipos que puede conectar son:[/COLOR][/B] '+connects,'','',icon,fanart,'')
-            tools.addDir('[B][COLOR gold]Equipos conectados en estos momentos:[/COLOR][/B] '+ active,'','',icon,fanart,'')
-            tools.addDir('[B][COLOR lime]Servidor actual:[/COLOR][/B] '+url,'','',icon,fanart,'')
+            tools.addDir('[B][COLOR white]Estado de la cuenta :[/COLOR][/B] %s'%status,'','',icon,fanart,'')
+            tools.addDir('[B][COLOR white]Fecha de termino del servicio:[/COLOR][/B] '+expiry,'','',icon,fanart,'')
+            tools.addDir('[B][COLOR white]Nombre de usuario :[/COLOR][/B] '+username,'','',icon,fanart,'')
+            tools.addDir('[B][COLOR white]Clave de acceso :[/COLOR][/B] '+password,'','',icon,fanart,'')
+            tools.addDir('[B][COLOR white]El maximo de equipos que puede conectar son:[/COLOR][/B] '+connects,'','',icon,fanart,'')
+            tools.addDir('[B][COLOR white]Equipos conectados en estos momentos:[/COLOR][/B] '+ active,'','',icon,fanart,'')
+            tools.addDir('[B][COLOR white]Servidor actual:[/COLOR][/B] '+url,'','',icon,fanart,'')
     except:pass
         
     
@@ -706,11 +706,11 @@ def extras():
     if xbmcaddon.Addon().getSetting('hidexxx')=='true':
         XXX = '[B][COLOR lime]ON[/COLOR][/B]'
     else:
-        XXX = '[B][COLOR lime]OFF[/COLOR][/B]'
-    tools.addDir('Metadatos del servidor %s'%META,'META',10,icon,fanart,META)
-    tools.addDir('Limpiar el cache del servidor','CC',10,icon,fanart,'')
-    tools.addDir('Editar configuracion avanzada','ADS',10,icon,fanart,'')
-    tools.addDir('Ejecutar una prueba de velocidad de internet de 7 a 10 MB el equipo esta correcto','ST',10,icon,fanart,'')    
+        XXX = '[B][COLOR white]OFF[/COLOR][/B]'
+    tools.addDir('Metadata is %s'%META,'META',10,icon,fanart,META)
+    tools.addDir('Clear Cache','CC',10,icon,fanart,'')
+    tools.addDir('Edit Advanced Settings','ADS',10,icon,fanart,'')
+    tools.addDir('Run a Speed Test','ST',10,icon,fanart,'')    
     
 params=tools.get_params()
 url=None

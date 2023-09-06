@@ -3,7 +3,7 @@ from resources.modules import client,control
 import six
 from kodi_six import xbmc, xbmcaddon, xbmcplugin, xbmcgui, xbmcvfs
 from six.moves import urllib_parse, urllib_request, http_cookiejar
-ADDONTITLE     = 'SSTV'
+ADDONTITLE     = 'Ottplayer'
 
 def regex_from_to(text, from_string, to_string, excluding=True):
 	if excluding:
@@ -192,27 +192,27 @@ class Trailer:
 			
 def MonthNumToName(num):
 	if '01' in num:
-		month = 'Enero'
+		month = 'January'
 	elif '02' in num:
-		month = 'Febrero'
+		month = 'Febuary'
 	elif '03' in num:
-		month = 'Marzo'
+		month = 'March'
 	elif '04' in num:
-		month = 'Abril'
+		month = 'April'
 	elif '05' in num:
-		month = 'Mayo'
+		month = 'May'
 	elif '06' in num:
-		month = 'Junio'
+		month = 'June'
 	elif '07' in num:
-		month = 'Julio'
+		month = 'July'
 	elif '08' in num:
-		month = 'Agosto'
+		month = 'Augast'
 	elif '09' in num:
-		month = 'Septiembre'
+		month = 'September'
 	elif '10' in num:
-		month = 'Octubre'
+		month = 'October'
 	elif '11' in num:
-		month = 'Noviembre'
+		month = 'November'
 	elif '12' in num:
-		month = 'Diciembre'
+		month = 'December'
 	return month

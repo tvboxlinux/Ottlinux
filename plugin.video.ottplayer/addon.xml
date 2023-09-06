@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.ottplayer" name="Ottplayer" version="4.8.5" provider-name="Ottlinux">
+<addon id="plugin.video.ottplayer" name="Ottplayer" version="4.8.7" provider-name="Xtreamcoceds">
   <requires>
         <import addon="script.module.six" />
         <import addon="script.module.requests" />
@@ -10,9 +10,9 @@
         <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <summary lang="es">Xtreamcodes</summary>
+    <summary lang="en">Ottplayer</summary>
     <language>es</language>
-    <description lang="en">Xtreamcodecs ui</description>
+    <description lang="en">Xtreamcodecs Ui</description>
      <platform>all</platform>
   <assets>
             <icon>icon.png</icon>
