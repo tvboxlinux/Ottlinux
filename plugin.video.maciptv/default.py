@@ -130,10 +130,10 @@ def ver_canales(params):
         source=requests.get(url, headers=headers).content
     except:
     
-        xbmc.executebuiltin('XBMC.Notification( Nu se poate conecta la SERVER: ' + escogido +', '+portal+' '+mac+ ', 8000)')            
+        xbmc.executebuiltin('XBMC.Notification( No se puede conectar al servidor: ' + escogido +', '+portal+' '+mac+ ', 8000)')            
     
     if source =='':
-        xbmc.executebuiltin('XBMC.Notification( Nu se poate conecta la SERVER: ' + escogido +', '+str(source)+ ', 8000)')  
+        xbmc.executebuiltin('XBMC.Notification( No se puede conectar al servidor: ' + escogido +', '+str(source)+ ', 8000)')  
         #xbmc.log('ERROR conectando al servidor: '+str(source)+' : '+str(url))
         #xbmc.executebuiltin('Action(Back)')
         #return(params)
@@ -142,7 +142,7 @@ def ver_canales(params):
     try:
         token=re.findall('token":"(.*?)"', str(source) )[0] 
     except:       
-        xbmc.executebuiltin('XBMC.Notification( Nu se poate conecta la SERVER: ' + escogido +', '+str(source)+ ', 8000)')  
+        xbmc.executebuiltin('XBMC.Notification( No se puede conectar al servidor: ' + escogido +', '+str(source)+ ', 8000)')  
         #xbmc.executebuiltin('Action(Back)')
         #return(params)
     
@@ -234,7 +234,7 @@ def cambio_servidor(params):
             myaddon.setSetting('escogido',escogido)
         else:
         #except:
-            xbmc.executebuiltin('XBMC.Notification( Eroare la deschiderea: ' + str(escogido) +', '+str(portal)+' '+str(mac)+ ', 8000)')               
+            xbmc.executebuiltin('XBMC.Notification( Error al abrir: ' + str(escogido) +', '+str(portal)+' '+str(mac)+ ', 8000)')               
             xbmc.executebuiltin('Action(Back)')        
     else:
         xbmc.executebuiltin('Action(Back)')        
@@ -252,7 +252,7 @@ def cambio_mac(params):
     except:
         server2='pfducjrm'
     if escogido=='Fisier_LOCAL':
-        xbmc.executebuiltin('XBMC.Notification(Fisier local, Fisierul LOCAL functioneaza cu un singur MAC. Daca doresti sa schimbi MAC-ul adauga o noua linie in fisierul local. , 8000)')                        
+        xbmc.executebuiltin('XBMC.Notification(Archivo local, el archivo LOCAL funciona con una sola MAC. Si desea cambiar la MAC, agregue una nueva línea en el archivo local. , 8000)')                        
         xbmc.executebuiltin('Content.Refresh')
         xbmc.executebuiltin('Action(Back)')
     
@@ -264,7 +264,7 @@ def cambio_mac(params):
             mac=re.findall('(00:.*?79:.*?........)', mac1)
             portal=re.findall('portal"(.*?)"', mac1.lower())[0]
             dialog = xbmcgui.Dialog()
-            ret = dialog.select('Direccion MAC actual: [ '+str(escogido)+' # '+str(macant)+' ]', ['Schimba MAC', 'Continua cu MAC '+macant])
+            ret = dialog.select('Direccion MAC actual: [ '+str(escogido)+' # '+str(macant)+' ]', ['Cambiar MAC', 'Continuar con la MAC actual '+macant])
             lists = ['si','no']
     
             categorias= lists[ret]
@@ -272,7 +272,7 @@ def cambio_mac(params):
             if 'si' in categorias:
                 newmac=''
             
-                selectable="Elija una direccion MAC aleatoria"
+                selectable="Elija una direccion MAC aleatoria o seleccione una"
                 for mc in mac:                                    
                         selectable=selectable+','+str(mc)
                 
@@ -315,7 +315,7 @@ def paginar_canales(params):
         pagina=str(i)
         plugintools.add_item( action="canal_por_pagina", title="Pagina: "+pagina, thumbnail = vpagina, fanart=fanny ,plot=token,page=mac,extra=portal,url=ids,folder=True )   
     
-    plugintools.add_item( action="todos_los_canales", title="Lista Completa (toate paginile)", thumbnail = vpagina, fanart=fanny ,plot=token,page=mac,extra=portal,url=ids,folder=True )   
+    plugintools.add_item( action="todos_los_canales", title="Cargar la lista completa", thumbnail = vpagina, fanart=fanny ,plot=token,page=mac,extra=portal,url=ids,folder=True )   
 
 def canal_por_pagina(params):
 
@@ -442,7 +442,7 @@ def todos_los_canales(params):
                         pass
 
             progreso=str(int(round((c/total)*100)))                
-            pb.update(int(progreso),heading=head+' '+progreso+'%',message='Se incarca canalul '+tit+' din pagina '+str(i)+' '+str(c)+'/'+str(total))    
+            pb.update(int(progreso),heading=head+' '+progreso+'%',message='inyectando canales '+tit+' din pagina '+str(i)+' '+str(c)+'/'+str(total))    
             c=c+1
                 
 
@@ -486,7 +486,7 @@ def reproduce_canal(params):
     
         plugintools.play_resolved_url(url)
     except:
-        xbmc.executebuiltin('XBMC.Notification(Eroare la redarea, ' +str(url)+ ', 8000)')            
+        xbmc.executebuiltin('XBMC.Notification(Error al reproducir, ' +str(url)+ ', 8000)')            
      
     
 def favourite(name,thumb,cmd):
@@ -499,7 +499,7 @@ def linkdirecto(params):
 
 def carga_servidores(params):
     donde=str(params.get('extra'))
-    head='Se incarca lista de canale '+str(donde)
+    head='inyectando canales '+str(donde)
     pb  = xbmcgui.DialogProgressBG()    
     pb.create(head,'')     
     
@@ -547,14 +547,14 @@ def carga_servidores(params):
                     selectable=selectable+',[COLOR '+color+']'+str(i)+' :: '+portal[0]+' # '+mac[0]+'[/COLOR]'
                 i+=1   
         except:
-            xbmc.executebuiltin('XBMC.Notification([COLOR red]EROARE[/COLOR] la obtinerea datelor , SERVER: '+str(servidor)+', 8000)')               
+            xbmc.executebuiltin('XBMC.Notification([COLOR red]EROARE[/COLOR] al obtener los datos , SERVER: '+str(servidor)+', 8000)')               
                            
     f.close()
     pb.close()
     
     dialog = xbmcgui.Dialog()    
     select_one=selectable.split(',')
-    retorno = dialog.select('Alege PORTAL+MAC', select_one)
+    retorno = dialog.select('Elija PORTAL+MAC', select_one)
     
     
     if str(retorno)=='-1':   
@@ -603,12 +603,12 @@ def guarda_servidores(params):
                 
         except:
             # xbmc.executebuiltin('XBMC.Notification([COLOR red]ERROR[/COLOR] obteniendo datos , SERVIDOR: '+str(servidor)+', 8000)')               
-            xbmc.log('Eroare la obtinerea datelor SERVER: '+str(servidor))
+            xbmc.log('Error al obtener datos del SERVIDOR: '+str(servidor))
             pass
         i=i+1     
     f.close()
     pb.close()
-    xbmc.executebuiltin('XBMC.Notification([COLOR red]Fisier de date '+donde+'[/COLOR] , Au fost salvate datele SERVERULUI in fisierul LOCAL , 8000)')          
+    xbmc.executebuiltin('XBMC.Notification([COLOR red]Archivo de datos '+donde+'[/COLOR] , Los datos del SERVIDOR se han guardado en el archivo LOCAL. , 8000)')          
     
     xbmc.executebuiltin('Content.refresh')
     #xbmc.executebuiltin("Action(Back)")
