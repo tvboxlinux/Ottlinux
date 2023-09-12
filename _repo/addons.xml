@@ -120,7 +120,7 @@
 	</extension>
 </addon>
 
-<addon id="plugin.video.ottplayer" name="Ottplayer" version="4.8.7" provider-name="Xtreamcoceds">
+<addon id="plugin.video.ottplayer" name="Ottplayer" version="4.9.0" provider-name="Xtreamcoceds">
   <requires>
         <import addon="script.module.six" />
         <import addon="script.module.requests" />

@@ -32,7 +32,6 @@ play_url     = '%s:%s/%s/%s/%s/'%(host,port,type,username,password)
 all_series_url   = '%s:%s/enigma2.php?username=%s&password=%s&type=get_series&cat_id=0'%(host,port,username,password)
 
 Guide = transPath(os.path.join('special://home/addons/plugin.video.ottplayer/resources/catchup', 'guide.xml'))
-GuideLoc = transPath(os.path.join('special://home/addons/plugin.video.ottplayer/resources/catchup', 'g'))
 
 advanced_settings           =  transPath('special://home/addons/'+addon_id+'/resources/advanced_settings')
 advanced_settings_target    =  transPath(os.path.join('special://home/userdata','advancedsettings.xml'))
@@ -74,7 +73,6 @@ def start():
             tools.addDir('[B][COLOR white]Canales[/COLOR][/B]','live',1,icon,fanart,'')
             tools.addDir('[B][COLOR white]Peliculas[/COLOR][/B]','url',11,icon,fanart,'')
             tools.addDir('[B][COLOR white]Series[/COLOR][/B]','url',12,icon,fanart,'')
-            tools.addDir('[B][COLOR white]Epg de canales[/COLOR][/B]','url',122,icon,fanart,'')
             tools.addDir('[B][COLOR white]Extras[/COLOR][/B]','url',16,icon,fanart,'')
             tools.addDir('[B][COLOR white]Configuraciones[/COLOR][/B]','AS',10,icon,fanart,'')
             tools.addDir('[B][COLOR red]Eliminar la cuenta[/COLOR][/B]','LO',10,icon,fanart,'')
@@ -85,7 +83,6 @@ def home():
     tools.addDir('Canales','live',1,icon,fanart,'')
     tools.addDir('Peliculas','url',11,icon,fanart,'')
     tools.addDir('Series','url',12,icon,fanart,'')
-    tools.addDir('Catchup TV','url',13,icon,fanart,'')
     tools.addDir('Extras','url',16,icon,fanart,'')
     tools.addDir('Configuraciones','AS',10,icon,fanart,'')
     tools.addDir('Eliminar la cuenta','LO',10,icon,fanart,'')
@@ -244,7 +241,7 @@ def _pbhook(numblocks, blocksize, filesize, dp, start_time):
             dp.update(percent) 
         if dp.iscanceled():
             dialog = xbmcgui.Dialog()
-            dialog.ok("SS TV", 'The download was cancelled.')
+            dialog.ok("Ottlinux", 'The download was cancelled.')
                 
             sys.exit()
             dp.close()
@@ -461,7 +458,7 @@ def guideconf():
 
 
 def searchdialog():
-    search = control.inputDialog(heading='Search SS TV:')
+    search = control.inputDialog(heading='Search Ottlinux:')
     if search=="":
         return
     else:
@@ -511,42 +508,42 @@ def addonsettings(url,description):
     elif url =="AS":
         xbmc.executebuiltin('Addon.OpenSettings(%s)'%addon_id)
     elif url =="ADS":
-        dialog = xbmcgui.Dialog().select('Edit Advanced Settings', ['Enable Fire TV Stick AS','Enable Fire TV AS','Enable 1GB Ram or Lower AS','Enable 2GB Ram or Higher AS','Enable Nvidia Shield AS','Disable AS'])
+        dialog = xbmcgui.Dialog().select('Editar configuracion avanzada', ['Enable Fire TV Stick AS','Enable Fire TV AS','Enable 1GB Ram or Lower AS','Enable 2GB Ram or Higher AS','Enable Nvidia Shield AS','Deshabilitar'])
         if dialog==0:
             advancedsettings('stick')
-            xbmcgui.Dialog().ok('SS TV', 'Set Advanced Settings')
+            xbmcgui.Dialog().ok('Ottlinux', 'Configuraciones del buffer creadas')
         elif dialog==1:
             advancedsettings('firetv')
-            xbmcgui.Dialog().ok('SS TV', 'Set Advanced Settings')
+            xbmcgui.Dialog().ok('Ottlinux', 'Configuraciones del buffer creadas')
         elif dialog==2:
             advancedsettings('lessthan')
-            xbmcgui.Dialog().ok('SS TV', 'Set Advanced Settings')
+            xbmcgui.Dialog().ok('Ottlinux', 'Configuraciones del buffer creadas')
         elif dialog==3:
             advancedsettings('morethan')
-            xbmcgui.Dialog().ok('SS TV', 'Set Advanced Settings')
+            xbmcgui.Dialog().ok('Ottlinux', 'Configuraciones del buffer creadas')
         elif dialog==4:
             advancedsettings('shield')
-            xbmcgui.Dialog().ok('SS TV', 'Set Advanced Settings')
+            xbmcgui.Dialog().ok('Ottlinux', 'Configuraciones del buffer creadas')
         elif dialog==5:
             advancedsettings('remove')
-            xbmcgui.Dialog().ok('SS TV', 'Advanced Settings Removed')
+            xbmcgui.Dialog().ok('Ottlinux', 'Configuracion avanzada eliminada')
     elif url =="ADS2":
         dialog = xbmcgui.Dialog().select('Select Your Device Or Closest To', ['Fire TV Stick ','Fire TV','1GB Ram or Lower','2GB Ram or Higher','Nvidia Shield'])
         if dialog==0:
             advancedsettings('stick')
-            xbmcgui.Dialog().ok('SS TV', 'Set Advanced Settings')
+            xbmcgui.Dialog().ok('Ottlinux', 'Set Advanced Settings')
         elif dialog==1:
             advancedsettings('firetv')
-            xbmcgui.Dialog().ok('SS TV', 'Set Advanced Settings')
+            xbmcgui.Dialog().ok('Ottlinux', 'Set Advanced Settings')
         elif dialog==2:
             advancedsettings('lessthan')
-            xbmcgui.Dialog().ok('SS TV', 'Set Advanced Settings')
+            xbmcgui.Dialog().ok('Ottlinux', 'Set Advanced Settings')
         elif dialog==3:
             advancedsettings('morethan')
-            xbmcgui.Dialog().ok('SS TV', 'Set Advanced Settings')
+            xbmcgui.Dialog().ok('Ottlinux', 'Set Advanced Settings')
         elif dialog==4:
             advancedsettings('shield')
-            xbmcgui.Dialog().ok('SS TV', 'Set Advanced Settings')
+            xbmcgui.Dialog().ok('Ottlinux', 'Set Advanced Settings')
     elif url =="ST":
         try:
             xbmcaddon.Addon(id = 'script.speedtester')
@@ -625,7 +622,7 @@ def advancedsettings(device):
         
     
 def asettings():
-    choice = xbmcgui.Dialog().yesno('SS TV', 'Please Select The RAM Size of Your Device', yeslabel='Less than 1GB RAM', nolabel='More than 1GB RAM')
+    choice = xbmcgui.Dialog().yesno('Ottlinux', 'Seleccione la memoria de su dispositivo', yeslabel='Less than 1GB RAM', nolabel='More than 1GB RAM')
     if choice:
         lessthan()
     else:
@@ -650,7 +647,7 @@ def lessthan():
         
 def userpopup():
     kb =xbmc.Keyboard ('', 'heading', True)
-    kb.setHeading('Enter Username')
+    kb.setHeading('Usuario')
     kb.setHiddenInput(False)
     kb.doModal()
     if (kb.isConfirmed()):
@@ -662,7 +659,7 @@ def userpopup():
         
 def passpopup():
     kb =xbmc.Keyboard ('', 'heading', True)
-    kb.setHeading('Enter Password')
+    kb.setHeading('Clave de acceso')
     kb.setHiddenInput(False)
     kb.doModal()
     if (kb.isConfirmed()):
@@ -707,10 +704,10 @@ def extras():
         XXX = '[B][COLOR lime]ON[/COLOR][/B]'
     else:
         XXX = '[B][COLOR white]OFF[/COLOR][/B]'
-    tools.addDir('Metadata is %s'%META,'META',10,icon,fanart,META)
-    tools.addDir('Clear Cache','CC',10,icon,fanart,'')
-    tools.addDir('Edit Advanced Settings','ADS',10,icon,fanart,'')
-    tools.addDir('Run a Speed Test','ST',10,icon,fanart,'')    
+    tools.addDir('Metadatos %s'%META,'META',10,icon,fanart,META)
+    tools.addDir('Limpiar el cache','CC',10,icon,fanart,'')
+    tools.addDir('Configurar el buffer del equipo','ADS',10,icon,fanart,'')
+    tools.addDir('Ejecute una prueba de velocidad','ST',10,icon,fanart,'')    
     
 params=tools.get_params()
 url=None

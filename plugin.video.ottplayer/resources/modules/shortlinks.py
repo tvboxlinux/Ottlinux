@@ -6,9 +6,9 @@ username     = control.setting('Username')
 password     = control.setting('Password')
 def Get():
 	xbmc.executebuiltin("ActivateWindow(busydialog)")
-	m3u  = 'http://stavros.life:8080/get.php?username='+username+'&password='+password+'&type=m3u_plus&output=ts'
-	epg  = 'http://stavros.life:8080/xmltv.php?username='+username+'&password='+password
-	auth = 'http://stavros.life:8080/enigma2.php?username='+username+'&password='+password+'&type=get_vod_categories'
+	m3u  = 'http://castlempire.site:8080/get.php?username='+username+'&password='+password+'&type=m3u_plus&output=ts'
+	epg  = 'http://castlempire.site:8080/xmltv.php?username='+username+'&password='+password
+	auth = 'http://castlempire.site:8080/enigma2.php?username='+username+'&password='+password+'&type=get_vod_categories'
 	auth = tools.OPEN_URL(auth)
 	if not auth=="":
 		request  = 'https://tinyurl.com/create.php?source=indexpage&url='+m3u+'&submit=Make+TinyURL%21&alias='

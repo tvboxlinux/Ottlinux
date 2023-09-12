@@ -65,7 +65,7 @@ def OPEN_URL(url):
 def clear_cache():
 	xbmc.log('CLEAR CACHE ACTIVATED')
 	xbmc_cache_path = os.path.join(control.transPath('special://home'), 'cache')
-	confirm=xbmcgui.Dialog().yesno("Please Confirm","Please Confirm You Wish To Delete Your Kodi Application Data",nolabel="Cancel",yeslabel="Clear")
+	confirm=xbmcgui.Dialog().yesno("Por favor confirmar","Confirme que desea eliminar los datos",nolabel="Cancelar",yeslabel="Limpiar")
 	if confirm:
 		if os.path.exists(xbmc_cache_path)==True:
 			for root, dirs, files in os.walk(xbmc_cache_path):
@@ -87,7 +87,7 @@ def clear_cache():
 
 
 		dialog = xbmcgui.Dialog()
-		dialog.ok(ADDONTITLE, "Cache Cleared Successfully!")
+		dialog.ok(ADDONTITLE, "Cache borrado exitosamente!")
 		xbmc.executebuiltin("Container.Refresh()")
 		
 def get_params():
