@@ -252,7 +252,7 @@ def cambio_mac(params):
     except:
         server2='pfducjrm'
     if escogido=='Fisier_LOCAL':
-        xbmc.executebuiltin('XBMC.Notification(Archivo local, el archivo LOCAL funciona con una sola MAC. Si desea cambiar la MAC, agregue una nueva línea en el archivo local. , 8000)')                        
+        xbmc.executebuiltin('XBMC.Notification(Archivo local, el archivo local funciona con una sola MAC. Si desea cambiar la MAC, agregue una nueva línea en el archivo local. , 8000)')                        
         xbmc.executebuiltin('Content.Refresh')
         xbmc.executebuiltin('Action(Back)')
     
@@ -315,7 +315,8 @@ def paginar_canales(params):
         pagina=str(i)
         plugintools.add_item( action="canal_por_pagina", title="Pagina: "+pagina, thumbnail = vpagina, fanart=fanny ,plot=token,page=mac,extra=portal,url=ids,folder=True )   
     
-    plugintools.add_item( action="todos_los_canales", title="Cargar la lista completa", thumbnail = vpagina, fanart=fanny ,plot=token,page=mac,extra=portal,url=ids,folder=True )   
+    plugintools.add_item( action="todos_los_canales", title="Lista completa", thumbnail = vpagina,
+fanart=fanny ,plot=token,page=mac,extra=portal,url=ids,folder=True )   
 
 def canal_por_pagina(params):
 
@@ -442,7 +443,7 @@ def todos_los_canales(params):
                         pass
 
             progreso=str(int(round((c/total)*100)))                
-            pb.update(int(progreso),heading=head+' '+progreso+'%',message='inyectando canales '+tit+' din pagina '+str(i)+' '+str(c)+'/'+str(total))    
+            pb.update(int(progreso),heading=head+' '+progreso+'%',message='cargando canales '+tit+' del servidor '+str(i)+' '+str(c)+'/'+str(total))    
             c=c+1
                 
 
@@ -499,7 +500,7 @@ def linkdirecto(params):
 
 def carga_servidores(params):
     donde=str(params.get('extra'))
-    head='inyectando canales '+str(donde)
+    head='se cargaran canales del servidor '+str(donde)
     pb  = xbmcgui.DialogProgressBG()    
     pb.create(head,'')     
     
@@ -547,7 +548,7 @@ def carga_servidores(params):
                     selectable=selectable+',[COLOR '+color+']'+str(i)+' :: '+portal[0]+' # '+mac[0]+'[/COLOR]'
                 i+=1   
         except:
-            xbmc.executebuiltin('XBMC.Notification([COLOR red]EROARE[/COLOR] al obtener los datos , SERVER: '+str(servidor)+', 8000)')               
+            xbmc.executebuiltin('XBMC.Notification([COLOR red]ERROR[/COLOR] al obtener los datos , SERVER: '+str(servidor)+', 8000)')               
                            
     f.close()
     pb.close()
@@ -579,7 +580,7 @@ def carga_servidores(params):
 
 def guarda_servidores(params):
     donde=str(params.get('extra'))    
-    head='Salveaza serverele '
+    head='guardar los servidores '
     pb  = xbmcgui.DialogProgressBG()    
     pb.create(head,'') 
     lists=myaddon.getSetting('lista').split(',')
@@ -603,12 +604,12 @@ def guarda_servidores(params):
                 
         except:
             # xbmc.executebuiltin('XBMC.Notification([COLOR red]ERROR[/COLOR] obteniendo datos , SERVIDOR: '+str(servidor)+', 8000)')               
-            xbmc.log('Error al obtener datos del SERVIDOR: '+str(servidor))
+            xbmc.log('Error al obtener datos del servidor: '+str(servidor))
             pass
         i=i+1     
     f.close()
     pb.close()
-    xbmc.executebuiltin('XBMC.Notification([COLOR red]Archivo de datos '+donde+'[/COLOR] , Los datos del SERVIDOR se han guardado en el archivo LOCAL. , 8000)')          
+    xbmc.executebuiltin('XBMC.Notification([COLOR red]Archivo de datos '+donde+'[/COLOR] , Los datos del servidor se han guardado en el archivo local. , 8000)')          
     
     xbmc.executebuiltin('Content.refresh')
     #xbmc.executebuiltin("Action(Back)")
