@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<onload condition="String.IsEmpty(Skin.String(BackgroundType))">Skin.SetString(BackgroundType,4)</onload>
+	<onload condition="String.IsEmpty(Skin.String(TrailerSearchLanguageType))">Skin.SetString(TrailerSearchLanguageType,0)</onload>
+	<onload condition="String.IsEmpty(Skin.String(ExperimentalVolumeAmplificationLevel))">Skin.SetString(ExperimentalVolumeAmplificationLevel,0)</onload>
+	<controls>
+		<include>CommonBackground</include>
+		<include>ContentPanelBackgrounds</include>
+		
+		
+		
+		<control type="group">
+			<left>0</left><!-- 90 -->
+			<top>0</top><!-- 36 -->
+			
+			<animation type="WindowOpen" reversible="false">
+				<effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="225" />
+				<effect type="fade" start="0" end="100" time="225" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="225" />
+				<effect type="fade" start="100" end="0" time="225" />
+			</animation>
+			
+			
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>340</width>
+				<height>720</height>
+				<texture border="4">black-back.png</texture>
+				<animation effect="fade" end="65" time="0" condition="true">conditional</animation>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>340</width>
+				<height>720</height>
+				<texture border="4">_added_img/black-back2-noborder.png</texture>
+				<animation effect="fade" end="40" time="0" condition="true">conditional</animation>
+			</control>
+			
+			<control type="image">
+				<left>0</left>
+				<top>370</top>
+				<width>340</width>
+				<height>340</height>
+				<aspectratio aligny="top" align="left">scale</aspectratio>
+				<texture background="true">_added_img/aczg_logo_skin_settings.png</texture>
+				<animation effect="fade" end="20" time="0" condition="true">Conditional</animation>
+			</control>
+			<control type="list" id="9000">
+				<left>0</left>
+				<top>90</top>
+				<width>340</width>
+				<height>481</height>
+				<onleft>9000</onleft>
+				<onright>9010</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<pagecontrol>-</pagecontrol>
+				<scrolltime>300</scrolltime>
+				<itemlayout height="64" width="340">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>340</width>
+						<height>64</height>
+						<texture border="4">MenuItemNF666.png</texture>
+					</control>
+					<control type="label">
+						<left>20</left>
+						<top>0</top>
+						<width>300</width>
+						<height>64</height>
+						<font>Medium22</font>
+						<textcolor>grey2+</textcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label] $INFO[ListItem.Label2]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout height="64" width="340">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>340</width>
+						<height>64</height>
+						<texture border="4">_added_img/main_menu_button-focus.png</texture>
+						<animation effect="fade" start="100" end="50" time="0" condition="!Control.HasFocus(9000)">Conditional</animation>
+					</control>
+					<!--
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>340</width>
+						<height>64</height>
+						<texture border="4">_added_img/main_menu_button-focus-inactive.png</texture>
+						<visible>!Control.HasFocus(9000)</visible>
+					</control>
+					-->
+					<control type="label">
+						<left>20</left>
+						<top>0</top>
+						<width>300</width>
+						<height>64</height>
+						<font>Medium22</font>
+						<textcolor>white</textcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label] $INFO[ListItem.Label2]</label>
+					</control>
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<label>Ajustes generales</label>
+						<label2></label2>
+						<onclick>noop</onclick>
+					</item>
+					<item id="2">
+						<label>Menu principal</label>
+						<label2></label2>
+						<onclick>noop</onclick>
+					</item>
+					<item id="3">
+						<label>Accesos directos</label>
+						<label2></label2>
+						<onclick>noop</onclick>
+					</item>
+					<item id="4">
+						<label>Fondos de pantalla</label>
+						<label2></label2>
+						<onclick>noop</onclick>
+					</item>
+				</content>
+			</control>
+			<control type="image">
+				<left>340</left>
+				<top>0</top>
+				<width>1200</width>
+				<height>720</height>
+				<texture border="4">black-back.png</texture>
+				<animation effect="fade" end="85" time="0" condition="true">Conditional</animation>
+			</control>
+			<control type="image">
+				<left>340</left>
+				<top>0</top>
+				<width>1200</width>
+				<height>720</height>
+				<texture border="4">_added_img/black-back2-noborder.png</texture>
+				<animation effect="fade" end="60" time="0" condition="true">Conditional</animation>
+			</control>
+			
+			
+			
+			
+			
+			
+			<control type="group" id="9010">
+				<control type="grouplist" id="9001">
+					<visible>Container(9000).Hasfocus(1)</visible>
+					<left>400</left>
+					<top>90</top>
+					<width>750</width>
+					<height>562</height>
+					<itemgap>0</itemgap>
+					<pagecontrol>60</pagecontrol>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>9001</onup>
+					<ondown>9001</ondown>
+					<!--<scrolltime>150</scrolltime>-->
+					
+					<!--
+					<control type="label" id="100">
+						<width>750</width>
+						<height>45</height>
+						<font>Medium21</font>
+						<label>31106</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					-->
+					
+					<!--
+					<control type="radiobutton" id="102">
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<label>Shorten plot text in Video Details Dialog to prevent spoilers (5 lines)</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(VideoInfoDialogShortenPlotInfo)</onclick>
+						<selected>Skin.HasSetting(VideoInfoDialogShortenPlotInfo)</selected>
+					</control>
+					-->
+					<!--
+					<control type="radiobutton" id="103">
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<label>Hide plot text in Video Details Dialog for tv show episodes to prevent spoilers</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(VideoInfoDialogHidePlotOfTvShowEpisodes)</onclick>
+						<selected>Skin.HasSetting(VideoInfoDialogHidePlotOfTvShowEpisodes)</selected>
+					</control>
+					-->
+					<control type="radiobutton" id="101">
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<label>20189</label>
+						<textcolor>lime</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(AutoScroll)</onclick>
+						<selected>Skin.HasSetting(AutoScroll)</selected>
+					</control>
+					
+					<control type="label" id="200">
+						<width>750</width>
+						<height>45</height>
+						<font>Medium21</font>
+						<label>31101</label>
+						<textcolor>lime</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					
+					<control type="radiobutton" id="204">
+						<description>Meteorologia</description>
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<label>20084</label>
+						<onclick>Skin.ToggleSetting(HomepageWeatherinfo)</onclick>
+						<selected>Skin.HasSetting(HomepageWeatherinfo)</selected>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+						<enable>!String.IsEmpty(Weather.Plugin)</enable>
+					</control>
+					<control type="radiobutton" id="207">
+						<description>Mostrar el botón de búsqueda</description>
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<label>Mostrar el botón de búsqueda</label>
+						<onclick>Skin.ToggleSetting(HomepageHideSearchButton)</onclick>
+						<selected>!Skin.HasSetting(HomepageHideSearchButton)</selected>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+					</control>
+					<control type="radiobutton" id="208">
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<label>Botón Favoritos en el menú principal</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(HomeMenuHasFavoritesButton)</onclick>
+						<selected>Skin.HasSetting(HomeMenuHasFavoritesButton)</selected>
+					</control>
+					<control type="radiobutton" id="209">
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<label>- Haga que Favoritos se situe en el primer elemento del menú principal</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(HomeMenuHasFavoritesButtonStartWith)</onclick>
+						<selected>Skin.HasSetting(HomeMenuHasFavoritesButtonStartWith)</selected>
+						<enable>Skin.HasSetting(HomeMenuHasFavoritesButton)</enable>
+					</control>
+					
+					
+					
+					<control type="label" id="190">
+						<width>750</width>
+						<height>45</height>
+						<font>Medium21</font>
+						<label>Vistas y opciones visuales</label>
+						<textcolor>lime</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					<control type="radiobutton" id="195">
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<label>Oculte algunos botones para simplificar (rebobinar/avanzar)</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(FullScreenOsdButtonSimplicity)</onclick>
+						<selected>Skin.HasSetting(FullScreenOsdButtonSimplicity)</selected>
+					</control>					
+					
+					
+					
+					<control type="label" id="500">
+						<width>750</width>
+						<height>45</height>
+						<font>Medium21</font>
+						<label>[COLOR=red]![/COLOR] SECCION EXPERIMENTAL </label>
+						<textcolor>lime</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					
+					<control type="label" id="501">
+						<width>750</width>
+						<height>45</height>
+						<font>Regular20</font>
+						<label>Otras opciones</label>
+						<textcolor>lime</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					
+					<control type="radiobutton" id="502">
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<label>Mostrar logo-pantalla mientras se está en progreso de apagado</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(ExperimentalShutdownScreen)</onclick>
+						<selected>Skin.HasSetting(ExperimentalShutdownScreen)</selected>
+					</control>
+					
+				</control>
+				<control type="scrollbar" id="60">
+					<left>1200</left>
+					<top>82</top>
+					<width>24</width>
+					<height>580</height>
+					<texturesliderbackground border="10">scrollbars/ScrollBarUni-bg.png</texturesliderbackground>
+					<texturesliderbar border="10">scrollbars/ScrollBarUni-bar.png</texturesliderbar>
+					<texturesliderbarfocus border="10">scrollbars/ScrollBarUni-bar-focus.png</texturesliderbarfocus>
+					<textureslidernib>scrollbars/ScrollBarUni-nib.png</textureslidernib>
+					<textureslidernibfocus>scrollbars/ScrollBarUni-nib.png</textureslidernibfocus>
+					<onleft>9001</onleft>
+					<onright>60</onright>
+					<showonepage>false</showonepage>
+					<orientation>vertical</orientation>
+					<visible>Container(9000).Hasfocus(1)</visible>
+				</control>
+				
+				
+				
+				
+				
+				
+				<control type="grouplist" id="9002">
+					<visible>Container(9000).Hasfocus(2)</visible>
+					<left>400</left>
+					<top>90</top>
+					<width>750</width>
+					<height>562</height>
+					<itemgap>0</itemgap>
+					<pagecontrol>61</pagecontrol>
+					<onleft>9000</onleft>
+					<onright>61</onright>
+					<onup>9002</onup>
+					<ondown>9002</ondown>
+					
+					<!--
+					<control type="label" id="220">
+						<width>750</width>
+						<height>45</height>
+						<font>Medium21</font>
+						<label>Main menu</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					-->
+					
+                    <control type="radiobutton" id="228">
+						<description>Weather button</description>
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<label>[UPPERCASE]$LOCALIZE[8][/UPPERCASE]</label>
+						<onclick>Skin.ToggleSetting(HomeMenuNoWeatherButton)</onclick>
+						<selected>!Skin.HasSetting(HomeMenuNoWeatherButton)</selected>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+					</control>
+				</control>
+				<control type="scrollbar" id="61">
+					<left>1200</left>
+					<top>82</top>
+					<width>24</width>
+					<height>580</height>
+					<texturesliderbackground border="10">scrollbars/ScrollBarUni-bg.png</texturesliderbackground>
+					<texturesliderbar border="10">scrollbars/ScrollBarUni-bar.png</texturesliderbar>
+					<texturesliderbarfocus border="10">scrollbars/ScrollBarUni-bar-focus.png</texturesliderbarfocus>
+					<textureslidernib>scrollbars/ScrollBarUni-nib.png</textureslidernib>
+					<textureslidernibfocus>scrollbars/ScrollBarUni-nib.png</textureslidernibfocus>
+					<onleft>9002</onleft>
+					<onright>61</onright>
+					<showonepage>false</showonepage>
+					<orientation>vertical</orientation>
+					<visible>Container(9000).Hasfocus(2)</visible>
+				</control>
+				
+				
+				
+				
+				
+
+				<control type="grouplist" id="9003">
+					<visible>Container(9000).Hasfocus(3)</visible>
+					<left>400</left>
+					<top>90</top>
+					<width>750</width>
+					<height>562</height>
+					<itemgap>0</itemgap>
+					<pagecontrol>62</pagecontrol>
+					<onleft>9000</onleft>
+					<onright>62</onright>
+					<onup>9003</onup>
+					<ondown>9003</ondown>
+					
+					<!-- TV/RADIO ADDONS (ADDED) -->
+					<control type="label" id="460">
+						<width>750</width>
+						<height>45</height>
+						<font>Medium21</font>
+						<label>TVIP</label>
+						<textcolor>lime</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					
+					<control type="button" id="461">
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<label>Agregar el acceso directo de la aplicacion (1)</label>
+                        <label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomePVRButton1))][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+						<onclick>Skin.SetAddon(HomePVRButton1,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.executable)</onclick>
+					</control>
+					<control type="button" id="462">
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<label>Agregar el acceso directo de la aplicacion (2)</label>
+                        <label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomePVRButton2))][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+						<onclick>Skin.SetAddon(HomePVRButton2,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.executable)</onclick>
+					</control>
+					<control type="button" id="463">
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<label>Agregar el acceso directo de la aplicacion (3)</label>
+                        <label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomePVRButton3))][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+						<onclick>Skin.SetAddon(HomePVRButton3,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.executable)</onclick>
+					</control>
+					<control type="button" id="464">
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<label>Agregar el acceso directo de la aplicacion (4)</label>
+                        <label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomePVRButton4))][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+						<onclick>Skin.SetAddon(HomePVRButton4,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.executable)</onclick>
+					</control>
+					<control type="button" id="465">
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<label>Agregar el acceso directo de la aplicacion (5)</label>
+                        <label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomePVRButton5))][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+						<onclick>Skin.SetAddon(HomePVRButton5,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.executable)</onclick>
+					</control>
+					<control type="button" id="466">
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<label>Agregar el acceso directo de la aplicacion (6)</label>
+                        <label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomePVRButton6))][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+						<onclick>Skin.SetAddon(HomePVRButton6,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.executable)</onclick>
+					</control>
+					<control type="button" id="467">
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<label>Agregar el acceso directo de la aplicacion (7)</label>
+                        <label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomePVRButton7))][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+						<onclick>Skin.SetAddon(HomePVRButton7,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.executable)</onclick>
+					</control>
+				</control>
+				<control type="scrollbar" id="62">
+					<left>1200</left>
+					<top>82</top>
+					<width>24</width>
+					<height>580</height>
+					<texturesliderbackground border="10">scrollbars/ScrollBarUni-bg.png</texturesliderbackground>
+					<texturesliderbar border="10">scrollbars/ScrollBarUni-bar.png</texturesliderbar>
+					<texturesliderbarfocus border="10">scrollbars/ScrollBarUni-bar-focus.png</texturesliderbarfocus>
+					<textureslidernib>scrollbars/ScrollBarUni-nib.png</textureslidernib>
+					<textureslidernibfocus>scrollbars/ScrollBarUni-nib.png</textureslidernibfocus>
+					<onleft>9003</onleft>
+					<onright>62</onright>
+					<showonepage>false</showonepage>
+					<orientation>vertical</orientation>
+					<visible>Container(9000).Hasfocus(3)</visible>
+				</control>
+				
+				
+				
+				
+				
+				<control type="grouplist" id="9004">
+					<visible>Container(9000).Hasfocus(4)</visible>
+					<left>400</left>
+					<top>90</top>
+					<width>750</width>
+					<height>562</height>
+					<itemgap>0</itemgap>
+					<pagecontrol>63</pagecontrol>
+					<onleft>9000</onleft>
+					<onright>63</onright>
+					<onup>9004</onup>
+					<ondown>9004</ondown>
+					
+					<control type="label" id="310">
+						<width>750</width>
+						<height>45</height>
+						<font>Medium21</font>
+						<label>31102</label>
+						<textcolor>lime</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					
+					
+					
+					<control type="button" id="398">
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<label>Background Type</label>
+						<label2>$VAR[BackgroundTypeVar]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+						<onclick condition="String.IsEqual(Skin.String(BackgroundType),0)">Skin.SetString(BackgroundType,1)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(BackgroundType),1)">Skin.SetString(BackgroundType,2)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(BackgroundType),2)">Skin.SetString(BackgroundType,3)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(BackgroundType),3)">Skin.SetString(BackgroundType,4)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(BackgroundType),4)">Skin.SetString(BackgroundType,0)</onclick>
+						<enable>!Skin.HasSetting(UseCustomBackground)</enable>
+					</control>
+					
+					<!--
+					<control type="radiobutton" id="399">
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<label>Use Original Confluence Default Background "Blue Bubbles" instead of Black</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(UseOriginalConfluenceBackground)</onclick>
+						<selected>Skin.HasSetting(UseOriginalConfluenceBackground)</selected>
+					</control>
+					-->
+					<control type="radiobutton" id="311">
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<label>31109</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(UseCustomBackground)</onclick>
+						<selected>Skin.HasSetting(UseCustomBackground)</selected>
+					</control>
+					<control type="button" id="312">
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<label>- $LOCALIZE[31110]</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(CustomBackgroundPath)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+						<onclick>Skin.SetImage(CustomBackgroundPath)</onclick>
+						<enable>Skin.HasSetting(UseCustomBackground)</enable>
+					</control>
+					
+					<control type="label" id="300">
+						<width>750</width>
+						<height>45</height>
+						<font>Medium21</font>
+						<label>31106</label>
+						<textcolor>lime</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					
+					<control type="radiobutton" id="301">
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<label>31119</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(HideBackGroundFanart)</onclick>
+						<selected>Skin.HasSetting(HideBackGroundFanart)</selected>
+					</control>
+					<control type="radiobutton" id="302">
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<label>31129</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(HideVisualizationFanart)</onclick>
+						<selected>Skin.HasSetting(HideVisualizationFanart)</selected>
+					</control>
+					<control type="radiobutton" id="303">
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<label>31124</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(ShowBackgroundVideo)</onclick>
+						<selected>!Skin.HasSetting(ShowBackgroundVideo)</selected>
+					</control>
+					<control type="radiobutton" id="304">
+						<width>750</width>
+						<height>48</height>
+						<font>Regular20</font>
+						<label>31125</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="4">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF666.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(ShowBackgroundVis)</onclick>
+						<selected>!Skin.HasSetting(ShowBackgroundVis)</selected>
+					</control>
+					
+				</control>
+				<control type="scrollbar" id="63">
+					<left>1200</left>
+					<top>82</top>
+					<width>24</width>
+					<height>580</height>
+					<texturesliderbackground border="10">scrollbars/ScrollBarUni-bg.png</texturesliderbackground>
+					<texturesliderbar border="10">scrollbars/ScrollBarUni-bar.png</texturesliderbar>
+					<texturesliderbarfocus border="10">scrollbars/ScrollBarUni-bar-focus.png</texturesliderbarfocus>
+					<textureslidernib>scrollbars/ScrollBarUni-nib.png</textureslidernib>
+					<textureslidernibfocus>scrollbars/ScrollBarUni-nib.png</textureslidernibfocus>
+					<onleft>9004</onleft>
+					<onright>63</onright>
+					<showonepage>false</showonepage>
+					<orientation>vertical</orientation>
+					<visible>Container(9000).Hasfocus(4)</visible>
+				</control>
+			</control>
+			
+			
+			
+			
+			
+			
+		</control>
+		
+		<include>CommonNowPlaying</include>
+		<include>MainWindowMouseButtons</include>
+		<include>BehindDialogFadeOut</include>
+		
+		
+		
+		<include content="CommonWindowHeader">
+			<param name="Icon" value="icon_system" />
+			<param name="Label" value="$LOCALIZE[5]" />
+			<param name="ShowLabel2" value="true" />
+		</include>
+		
+		
+		
+	</controls>
+</window>

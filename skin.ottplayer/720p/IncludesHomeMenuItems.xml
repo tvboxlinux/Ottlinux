@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	
+	<!-- PVR TV -->
+	<include name="HomeSubMenuTV">
+		<control type="image" id="90141">
+			<width>35</width>
+			<height>40</height>
+			<texture flipx="true" border="4" colordiffuse="f5FFFFFF">HomeSubEnd.png</texture>
+        </control>
+		<control type="button" id="90144">
+			<include>ButtonHomeSubCommonValues</include>
+			<label>[COLOR lime]Aplicaciones[/COLOR]</label>
+			<onclick>ActivateWindow(Videos,Addons,return)</onclick>
+		</control>
+		<control type="button" id="90145">
+			<include>ButtonHomeSubCommonValues</include>
+			<label>[COLOR lime]Motor Torrent[/COLOR]</label>
+			<onclick>ActivateWindow(10025,&quot;plugin://script.module.libtorrent/&quot;,return)</onclick>
+		</control>
+		<control type="button" id="90146">
+			<include>ButtonHomeSubCommonValues</include>
+			<label>[COLOR lime]Mantenimiento[/COLOR]</label>
+			<onclick>ActivateWindow(10025,&quot;plugin://script.rawmaintenance/&quot;,return)</onclick>
+		</control>
+		<control type="button" id="90147">
+			<include>ButtonHomeSubCommonValues</include>
+			<label>[COLOR orange]Configuraciones[/COLOR]</label>
+			<onclick>PlayMedia(&quot;plugin://plugin.video.ottplayer/?url=AS&amp;mode=10&amp;name=%5BB%5D%5BCOLOR+white%5DConfiguraciones%5B%2FCOLOR%5D%5B%2FB%5D&amp;iconimage=%2Fstorage%2F.kodi%2Faddons%2Fplugin.video.ottplayer%2Ficon.png&amp;description=&quot;)</onclick>
+		</control>
+	</include>
+	
+	<!-- WEATHER -->
+	<include name="HomeSubMenuWeather">
+		<control type="image" id="90250">
+			<width>35</width>
+			<height>40</height>
+			<texture flipx="true" border="4" colordiffuse="f5FFFFFF">HomeSubEnd.png</texture>
+		</control>
+		<control type="button" id="90251">
+			<include>ButtonHomeSubCommonValues</include>
+			<label>[COLOR lime]Tienda de apps[/COLOR]</label>
+			<onclick>ActivateWindow(AddonBrowser)</onclick>
+			<!-- workaround fix refresh not working everytime -->
+			<!--<onclick>AlarmClock(WeatherRefreshFix,Weather.Refresh,00:00:03,silent)</onclick>-->
+		</control>
+		<control type="button" id="90252">
+			<include>ButtonHomeSubCommonValues</include>
+			<label>[COLOR lime]Redes[/COLOR]</label>
+			<onclick>RunAddon(service.system.settings)</onclick>
+		</control>
+		<control type="image" id="90253">
+			<width>35</width>
+			<height>40</height>
+			<texture border="4" colordiffuse="f5FFFFFF">HomeSubEnd.png</texture>
+		</control>
+	</include>
+	
+	
+	<!-- SYSTEM -->
+	<include name="HomeSubMenuSystem">
+		<control type="image" id="90121">
+			<width>35</width>
+			<height>40</height>
+			<texture flipx="true" border="4" colordiffuse="f5FFFFFF">HomeSubEnd.png</texture>
+		</control>
+		<control type="button" id="90125">
+			<include>ButtonHomeSubCommonValues</include>
+			<label>[COLOR red]Datos de la version[/COLOR]</label>
+			<onclick>ActivateWindow(SystemInfo)</onclick>
+		</control>
+        <control type="button" id="90123">
+			<include>ButtonHomeSubCommonValues</include>
+			<label>7</label>
+			<onclick>ActivateWindow(FileManager)</onclick>
+		</control>
+		<control type="button" id="90126">
+			<include>ButtonHomeSubCommonValues</include>
+			<label>14111</label>
+			<onclick>ActivateWindow(EventLog,events://,return)</onclick>
+			<visible>System.GetBool(eventlog.enabled)</visible>
+		</control>
+		<control type="image" id="90127">
+			<width>35</width>
+			<height>40</height>
+			<texture border="4" colordiffuse="f5FFFFFF">HomeSubEnd.png</texture>
+		</control>
+	</include>
+	
+	
+	
+	<include name="HomeAddonItemsPVR">
+		<item>
+			<label>$INFO[system.addontitle(Skin.String(HomePVRButton1))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomePVRButton1)])</onclick>
+			<icon>$INFO[system.addonicon(Skin.String(HomePVRButton1))]</icon>
+			<thumb>-</thumb>
+			<visible>!String.IsEmpty(Skin.String(HomePVRButton1))</visible>
+		</item>
+		<item>
+			<label>$INFO[system.addontitle(Skin.String(HomePVRButton2))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomePVRButton2)])</onclick>
+			<icon>$INFO[system.addonicon(Skin.String(HomePVRButton2))]</icon>
+			<thumb>-</thumb>
+			<visible>!String.IsEmpty(Skin.String(HomePVRButton2))</visible>
+		</item>
+		<item>
+			<label>$INFO[system.addontitle(Skin.String(HomePVRButton3))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomePVRButton3)])</onclick>
+			<icon>$INFO[system.addonicon(Skin.String(HomePVRButton3))]</icon>
+			<thumb>-</thumb>
+			<visible>!String.IsEmpty(Skin.String(HomePVRButton3))</visible>
+		</item>
+		<item>
+			<label>$INFO[system.addontitle(Skin.String(HomePVRButton4))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomePVRButton4)])</onclick>
+			<icon>$INFO[system.addonicon(Skin.String(HomePVRButton4))]</icon>
+			<thumb>-</thumb>
+			<visible>!String.IsEmpty(Skin.String(HomePVRButton4))</visible>
+		</item>
+		<item>
+			<label>$INFO[system.addontitle(Skin.String(HomePVRButton5))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomePVRButton5)])</onclick>
+			<icon>$INFO[system.addonicon(Skin.String(HomePVRButton5))]</icon>
+			<thumb>-</thumb>
+			<visible>!String.IsEmpty(Skin.String(HomePVRButton5))</visible>
+		</item>
+		<item>
+			<label>$INFO[system.addontitle(Skin.String(HomePVRButton6))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomePVRButton6)])</onclick>
+			<icon>$INFO[system.addonicon(Skin.String(HomePVRButton6))]</icon>
+			<thumb>-</thumb>
+			<visible>!String.IsEmpty(Skin.String(HomePVRButton6))</visible>
+		</item>
+		<item>
+			<label>$INFO[system.addontitle(Skin.String(HomePVRButton7))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomePVRButton7)])</onclick>
+			<icon>$INFO[system.addonicon(Skin.String(HomePVRButton7))]</icon>
+			<thumb>-</thumb>
+			<visible>!String.IsEmpty(Skin.String(HomePVRButton7))</visible>
+		</item>
+	</include>
+	
+	
+	<include name="HomeAddonItemsPrograms">
+		<item>
+			<label>$INFO[system.addontitle(Skin.String(HomeProgramButton1))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeProgramButton1)])</onclick>
+			<icon>$INFO[system.addonicon(Skin.String(HomeProgramButton1))]</icon>
+			<thumb>-</thumb>
+			<visible>!String.IsEmpty(Skin.String(HomeProgramButton1))</visible>
+		</item>
+		<item>
+			<label>$INFO[system.addontitle(Skin.String(HomeProgramButton2))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeProgramButton2)])</onclick>
+			<icon>$INFO[system.addonicon(Skin.String(HomeProgramButton2))]</icon>
+			<thumb>-</thumb>
+			<visible>!String.IsEmpty(Skin.String(HomeProgramButton2))</visible>
+		</item>
+		<item>
+			<label>$INFO[system.addontitle(Skin.String(HomeProgramButton3))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeProgramButton3)])</onclick>
+			<icon>$INFO[system.addonicon(Skin.String(HomeProgramButton3))]</icon>
+			<thumb>-</thumb>
+			<visible>!String.IsEmpty(Skin.String(HomeProgramButton3))</visible>
+		</item>
+		<item>
+			<label>$INFO[system.addontitle(Skin.String(HomeProgramButton4))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeProgramButton4)])</onclick>
+			<icon>$INFO[system.addonicon(Skin.String(HomeProgramButton4))]</icon>
+			<thumb>-</thumb>
+			<visible>!String.IsEmpty(Skin.String(HomeProgramButton4))</visible>
+		</item>
+		<item>
+			<label>$INFO[system.addontitle(Skin.String(HomeProgramButton5))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeProgramButton5)])</onclick>
+			<icon>$INFO[system.addonicon(Skin.String(HomeProgramButton5))]</icon>
+			<thumb>-</thumb>
+			<visible>!String.IsEmpty(Skin.String(HomeProgramButton5))</visible>
+		</item>
+		<item>
+			<label>$INFO[system.addontitle(Skin.String(HomeProgramButton6))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeProgramButton6)])</onclick>
+			<icon>$INFO[system.addonicon(Skin.String(HomeProgramButton6))]</icon>
+			<thumb>-</thumb>
+			<visible>!String.IsEmpty(Skin.String(HomeProgramButton6))</visible>
+		</item>
+		<item>
+			<label>$INFO[system.addontitle(Skin.String(HomeProgramButton7))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeProgramButton7)])</onclick>
+			<icon>$INFO[system.addonicon(Skin.String(HomeProgramButton7))]</icon>
+			<thumb>-</thumb>
+			<visible>!String.IsEmpty(Skin.String(HomeProgramButton7))</visible>
+		</item>
+	</include>
+	
+	
+	
+</includes>
