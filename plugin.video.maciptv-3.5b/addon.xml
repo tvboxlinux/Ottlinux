@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
-	id="plugin.video.maciptv" version="3.4b" name="MAC IPTV" provider-name="Aljota">
+	id="plugin.video.maciptv" version="3.5b" name="MAC IPTV" provider-name="Aljota">
   <requires>    		
     	<!--<import addon="script.module.resolveurl" /> -->   	
         <import addon="script.module.requests"/>	

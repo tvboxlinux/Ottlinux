@@ -94,7 +94,7 @@ def main_list(params):
 
     plugintools.log("maciptv.main_list ")    
     #plugintools.add_item(action="", thumbnail=thmb_nada,title="[COLOR gray]Ver Canales----------------------------------------------------------------------------[/COLOR]",folder= False )
-    plugintools.add_item(action="ver_canales",    title="Lista de canales de television por pais",thumbnail=thmb_ver_canales,fanart="https://archive.org/download/al8ina/splash.jpg",folder= True )            
+    plugintools.add_item(action="ver_canales",    title="[COLOR lime]Lista de canales de television por pais ( Latin America ) para canales latinos[/COLOR]",thumbnail=thmb_ver_canales,fanart="https://archive.org/download/al8ina/splash.jpg",folder= True )            
 
     plugintools.add_item(action="", thumbnail=thmb_nada,title="[COLOR gray]Configuracion actual--------------------------------------------------------------------------[/COLOR]",folder= False )
     plugintools.add_item(action="cambio_servidor",    title="Servidor satelital actual:   "+escogido,thumbnail=thmb_cambio_servidor,fanart="https://www.zooplus.es/magazine/wp-content/uploads/2018/04/fotolia_169457098.jpg",folder= True )               
@@ -104,10 +104,10 @@ def main_list(params):
     plugintools.add_item(action="nuevo_server_file", extra="Local" , title="Agregar servidor local",thumbnail=thmb_nuevo_servidor,folder= False )
     plugintools.add_item(action="", thumbnail=thmb_nada,title="[COLOR gray]Archivos de internet-----------------------------------------------------------------------[/COLOR]",folder= False )
     plugintools.add_item(action="nuevo_server", title="Nuevo servidor",thumbnail=thmb_nuevo_servidor,folder= False )
-    plugintools.add_item(action="guarda_servidores",    title="Descargar la lista de servidores",extra='Internet' ,thumbnail=thmb_guarda_servidores,fanart="https://www.zooplus.es/magazine/wp-content/uploads/2018/04/fotolia_169457098.jpg",folder= False )     
-    plugintools.add_item(action="carga_servidores",    title="Lista de servidores (descargados)",extra='Internet' ,thumbnail=thmb_carga_servidores,fanart="https://www.zooplus.es/magazine/wp-content/uploads/2018/04/fotolia_169457098.jpg",folder= True )         
+    plugintools.add_item(action="guarda_servidores",    title="[COLOR red]Descargar la lista de servidores[/COLOR]",extra='Internet' ,thumbnail=thmb_guarda_servidores,fanart="https://www.zooplus.es/magazine/wp-content/uploads/2018/04/fotolia_169457098.jpg",folder= False )     
+    plugintools.add_item(action="carga_servidores",    title="[COLOR lime]Seleccione un servidor local latino entre el numero ( 9 y 11 ) usualmente[/COLOR]",extra='Internet' ,thumbnail=thmb_carga_servidores,fanart="https://www.zooplus.es/magazine/wp-content/uploads/2018/04/fotolia_169457098.jpg",folder= True )         
     #plugintools.add_item(action="", thumbnail=thmb_nada,title="[COLOR gray]-------------------------------------------------------------------------[/COLOR]",folder= False )
-    #plugintools.add_item(action="guiatv",url="https://www.formulatv.com/programacion/movistarplus/",title="[COLOR blue]Guia de TV[/COLOR] - (Gracias Javi R)", thumbnail=thmb_guia,fanart="http://www.panoramaaudiovisual.com/wp-content/uploads/2012/01/EPG-Toshiba-Smart-Tv-web.png",folder= True )     
+    #plugintools.add_item(action="guiatv",url="https://www.formulatv.com/programacion/movistarplus/",title="[COLOR lime]Guia de TV[/COLOR] - (Gracias Javi R)", thumbnail=thmb_guia,fanart="http://www.panoramaaudiovisual.com/wp-content/uploads/2012/01/EPG-Toshiba-Smart-Tv-web.png",folder= True )     
     #plugintools.add_item(action="", thumbnail=thmb_nada,title="[COLOR gray]-------------------------------------------------------------------------[/COLOR]",folder= False )
 
 def ver_canales(params):
@@ -177,7 +177,7 @@ def ver_canales(params):
         data = plugintools.find_multiple_matches(source,'("id":"\d+.*?".*?"title":".*?",")')   
         pr0n=myaddon.getSetting('pr0n')  
         plugintools.add_item(title='[COLOR gray]-=========================-[/COLOR]',folder=False, isPlayable=False)   
-        plugintools.add_item(title='[COLOR blue]Satelite actual [ '+escogido+' # '+mac+' ][/COLOR]',folder=False, isPlayable=False)
+        plugintools.add_item(title='[COLOR lime]Satelite actual [ '+escogido+' # '+mac+' ][/COLOR]',folder=False, isPlayable=False)
         plugintools.add_item(title='[COLOR gray]-=========================-[/COLOR]',folder=False, isPlayable=False) 
         for generos in data: 
             
@@ -204,7 +204,7 @@ def cambio_servidor(params):
     
     lists=myaddon.getSetting('lista').split(',')
     lista_servidores=myaddon.getSetting('lista_servidores').split(',')
-    retorno = dialog.select('[COLOR blue]Satelite actual: [/COLOR]'+str(escogido), lista_servidores)
+    retorno = dialog.select('[COLOR lime]Satelite actual: [/COLOR]'+str(escogido), lista_servidores)
         
         #if retorno<>-1:
         #xbmc.executebuiltin('XBMC.Notification(Lista,'+lista_servidores[retorno]+',8000)')
@@ -251,7 +251,7 @@ def cambio_mac(params):
         escogido= myaddon.getSetting('escogido')
     except:
         server2='pfducjrm'
-    if escogido=='Fisier_LOCAL':
+    if escogido=='Archivo local':
         xbmc.executebuiltin('XBMC.Notification(Archivo local, el archivo local funciona con una sola MAC. Si desea cambiar la MAC, agregue una nueva línea en el archivo local. , 8000)')                        
         xbmc.executebuiltin('Content.Refresh')
         xbmc.executebuiltin('Action(Back)')
@@ -341,7 +341,7 @@ def canal_por_pagina(params):
     
     pr0n=myaddon.getSetting('pr0n')
     plugintools.add_item(title='[COLOR white]-=========================-[/COLOR]',folder=False, isPlayable=False)   
-    plugintools.add_item(title='[COLOR blue]Satelite actual [ '+myaddon.getSetting('escogido')+' # '+mac+' ][/COLOR]',folder=False, isPlayable=False)   
+    plugintools.add_item(title='[COLOR lime]Satelite actual [ '+myaddon.getSetting('escogido')+' # '+mac+' ][/COLOR]',folder=False, isPlayable=False)   
     plugintools.add_item(title='[COLOR white]-=========================-[/COLOR]',folder=False, isPlayable=False)   
     
     
@@ -399,9 +399,9 @@ def todos_los_canales(params):
    
     pr0n=myaddon.getSetting('pr0n')
     plugintools.add_item(title='[COLOR gray]-=========================-[/COLOR]',folder=False, isPlayable=False)   
-    plugintools.add_item(title='[COLOR blue]Satelite actual [ '+myaddon.getSetting('escogido')+' ][/COLOR]',folder=False, isPlayable=False)   
+    plugintools.add_item(title='[COLOR lime]Satelite actual en [ '+myaddon.getSetting('escogido')+' ][/COLOR]',folder=False, isPlayable=False)   
     plugintools.add_item(title='[COLOR gray]-=========================-[/COLOR]',folder=False, isPlayable=False)   
-    head='Se descarca lista de canale'
+    head='Descargando la lista de canales'
     pb  = xbmcgui.DialogProgressBG()    
     pb.create(head,'')        
     progreso=0
@@ -570,7 +570,7 @@ def carga_servidores(params):
         
         myaddon.setSetting('mac2',mac2)
         myaddon.setSetting('portal2',server2)
-        myaddon.setSetting('escogido','Fisier_LOCAL')
+        myaddon.setSetting('escogido','Archivo local')
         myaddon.setSetting('ser',server2)
         
         # xbmc.executebuiltin('XBMC.Notification([COLOR red]Cancelo[/COLOR] Cancelado , No se ha escogido un servidor, 8000)')                   
@@ -648,7 +648,7 @@ def nuevo_server_file(params):
             f=open(fichero,'a')
             f.write('\n'+'portal"'+server+'/"'+'#'+mac)
             f.close()
-            xbmc.executebuiltin('XBMC.Notification(Server FISIER_LOCAL , Au fost salvate datele SERVERULUI in fisierul LOCAL, 8000)')
+            xbmc.executebuiltin('XBMC.Notification(Server Archivo local , Los datos del servidor se han guardado en el archivo local, 8000)')
 
 def guiatv ( params ):
     url = params.get("url")  
