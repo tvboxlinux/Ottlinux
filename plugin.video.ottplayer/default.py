@@ -437,13 +437,13 @@ def stream_video(url):
     
     
 def subm():
-    tools.addDir('[COLOR white]All Movies[/COLOR]','vod',333,icon,fanart,'')
-    tools.addDir('[COLOR white]Movie Categories[/COLOR]','vod',3,icon,fanart,'')
-    tools.addDir('[COLOR white]Search Movies[/COLOR]','url',5,icon,fanart,'')
+    #tools.addDir('[COLOR white]All Movies[/COLOR]','vod',333,icon,fanart,'')
+    tools.addDir('[COLOR lime]Cargar la lista por generos[/COLOR]','vod',3,icon,fanart,'')
+    tools.addDir('[COLOR orange]Buscar la pelicula por su nombre[/COLOR]','url',5,icon,fanart,'')
 
 def subt():
-    tools.addDir('[COLOR white]TV Show Categories[/COLOR]',series_url,24,icon,fanart,'')
-    tools.addDir('[COLOR white]Search TV Shows[/COLOR]',all_series_url,2424,icon,fanart,'')
+    tools.addDir('[COLOR lime]Cargar la lista por generos[/COLOR]',series_url,24,icon,fanart,'')
+    tools.addDir('[COLOR orange]Buscar la serie por su nombre[/COLOR]',all_series_url,2424,icon,fanart,'')
 
 def subg():
     if xbmc.getCondVisibility('System.HasAddon(script.ivueguide)'):
@@ -469,10 +469,10 @@ def search():
     if mode==([3, 4, 20, 21]):
         return False
     #text = searchdialog()
-    text = xbmcgui.Dialog().input("Search for a Movie ?")
+    text = xbmcgui.Dialog().input("Buscar ?")
     xbmc.log(repr(text),xbmc.LOGERROR)
     if not text:
-        xbmc.executebuiltin("XBMC.Notification([COLOR white][B]Search is Empty[/B][/COLOR],Aborting search,4000,"+icon+")")
+        xbmc.executebuiltin("XBMC.Notification([COLOR white][B]Nada encontrado o mal escrito el titulo[/B][/COLOR],Aborting search,4000,"+icon+")")
         return
     xbmc.log(str(text))
     open = tools.OPEN_URL(panel_api)

@@ -3,12 +3,9 @@
     <setting id="Username" type="text" label="Nombre de usuario" default=""/>
     <setting id="Password" type="text" label="Clave de acceso" default=""/>
     <setting id="Host" type="text" label="Servidor" default="http://"/>
-    <setting id="Port" type="text" label="Seleccione el puerto" default="8080" />
+    <setting id="Port" type="text" label="Seleccione el puerto" default="" />
     <setting id="meta" type="bool" label="Metadatos del servidor" default="true"/>
     <setting id="hidexxx" type="bool" label="Activar canales para adultos" default="false"/>    
-    
-    <setting label="DNS" type="lsep"/>
-    <setting id="Host" type="select" label='Seleccione la direccion DNS' values="http://cpi4u.com|http://castlempire.site|http://tvfullprime.site|http://plusplayer.live|" default="http://" />
 
     <setting label="Servidor" type="lsep"/>
     <setting id="server-location" type="bool" label="[B]Ubicaciones del servidor[/B]" default="true" visible="true"/>

@@ -192,27 +192,27 @@ class Trailer:
 			
 def MonthNumToName(num):
 	if '01' in num:
-		month = 'January'
+		month = 'Enero'
 	elif '02' in num:
-		month = 'Febuary'
+		month = 'Febrero'
 	elif '03' in num:
-		month = 'March'
+		month = 'Marzo'
 	elif '04' in num:
-		month = 'April'
+		month = 'Abril'
 	elif '05' in num:
-		month = 'May'
+		month = 'Mayo'
 	elif '06' in num:
-		month = 'June'
+		month = 'Junio'
 	elif '07' in num:
-		month = 'July'
+		month = 'Julio'
 	elif '08' in num:
-		month = 'Augast'
+		month = 'Agosto'
 	elif '09' in num:
-		month = 'September'
+		month = 'Septiembre'
 	elif '10' in num:
-		month = 'October'
+		month = 'Octubre'
 	elif '11' in num:
-		month = 'November'
+		month = 'Noviembre'
 	elif '12' in num:
-		month = 'December'
+		month = 'Diciembre'
 	return month
